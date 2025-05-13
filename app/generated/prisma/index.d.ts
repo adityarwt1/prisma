@@ -45,6 +45,7 @@ export class PrismaClient<
 > {
   [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['other'] }
 
+<<<<<<< HEAD
   /**
  * ##  Prisma Client ʲˢ
  *
@@ -61,6 +62,24 @@ export class PrismaClient<
  */
 
   constructor(optionsArg?: Prisma.Subset<ClientOptions, Prisma.PrismaClientOptions>);
+=======
+    /**
+   * ##  Prisma Client ʲˢ
+   *
+   * Type-safe database client for TypeScript & Node.js
+   * @example
+   * ```
+   * const prisma = new PrismaClient()
+   * // Fetch zero or more Users
+   * const users = await prisma.user.findMany()
+   * ```
+   *
+   *
+   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
+   */
+
+  constructor(optionsArg ?: Prisma.Subset<ClientOptions, Prisma.PrismaClientOptions>);
+>>>>>>> b98793f (boiler plate givven by the prisma)
   $on<V extends U>(eventType: V, callback: (event: V extends 'query' ? Prisma.QueryEvent : Prisma.LogEvent) => void): PrismaClient;
 
   /**
@@ -80,6 +99,7 @@ export class PrismaClient<
    */
   $use(cb: Prisma.Middleware): void
 
+<<<<<<< HEAD
   /**
      * Executes a prepared raw query and returns the number of affected rows.
      * @example
@@ -89,6 +109,17 @@ export class PrismaClient<
      *
      * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
      */
+=======
+/**
+   * Executes a prepared raw query and returns the number of affected rows.
+   * @example
+   * ```
+   * const result = await prisma.$executeRaw`UPDATE User SET cool = ${true} WHERE email = ${'user@email.com'};`
+   * ```
+   *
+   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
+   */
+>>>>>>> b98793f (boiler plate givven by the prisma)
   $executeRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): Prisma.PrismaPromise<number>;
 
   /**
@@ -149,6 +180,7 @@ export class PrismaClient<
     extArgs: ExtArgs
   }>>
 
+<<<<<<< HEAD
   /**
 * `prisma.user`: Exposes CRUD operations for the **User** model.
 * Example usage:
@@ -157,6 +189,16 @@ export class PrismaClient<
 * const users = await prisma.user.findMany()
 * ```
 */
+=======
+      /**
+   * `prisma.user`: Exposes CRUD operations for the **User** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Users
+    * const users = await prisma.user.findMany()
+    * ```
+    */
+>>>>>>> b98793f (boiler plate givven by the prisma)
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
 
   /**
@@ -335,7 +377,11 @@ export namespace Prisma {
    * From T, pick a set of properties whose keys are in the union K
    */
   type Prisma__Pick<T, K extends keyof T> = {
+<<<<<<< HEAD
     [P in K]: T[P];
+=======
+      [P in K]: T[P];
+>>>>>>> b98793f (boiler plate givven by the prisma)
   };
 
 
@@ -370,8 +416,13 @@ export namespace Prisma {
     (T extends SelectAndInclude
       ? 'Please either choose `select` or `include`.'
       : T extends SelectAndOmit
+<<<<<<< HEAD
       ? 'Please either choose `select` or `omit`.'
       : {})
+=======
+        ? 'Please either choose `select` or `omit`.'
+        : {})
+>>>>>>> b98793f (boiler plate givven by the prisma)
 
   /**
    * Subset + Intersection
@@ -391,7 +442,11 @@ export namespace Prisma {
   type XOR<T, U> =
     T extends object ?
     U extends object ?
+<<<<<<< HEAD
     (Without<T, U> & U) | (Without<U, T> & T)
+=======
+      (Without<T, U> & U) | (Without<U, T> & T)
+>>>>>>> b98793f (boiler plate givven by the prisma)
     : U : T
 
 
@@ -399,6 +454,7 @@ export namespace Prisma {
    * Is T a Record?
    */
   type IsObject<T extends any> = T extends Array<any>
+<<<<<<< HEAD
     ? False
     : T extends Date
     ? False
@@ -409,6 +465,18 @@ export namespace Prisma {
     : T extends object
     ? True
     : False
+=======
+  ? False
+  : T extends Date
+  ? False
+  : T extends Uint8Array
+  ? False
+  : T extends BigInt
+  ? False
+  : T extends object
+  ? True
+  : False
+>>>>>>> b98793f (boiler plate givven by the prisma)
 
 
   /**
@@ -459,11 +527,19 @@ export namespace Prisma {
     : never
 
   export type Overwrite<O extends object, O1 extends object> = {
+<<<<<<< HEAD
     [K in keyof O]: K extends keyof O1 ? O1[K] : O[K];
   } & {};
 
   type _Merge<U extends object> = IntersectOf<Overwrite<U, {
     [K in keyof U]-?: At<U, K>;
+=======
+      [K in keyof O]: K extends keyof O1 ? O1[K] : O[K];
+  } & {};
+
+  type _Merge<U extends object> = IntersectOf<Overwrite<U, {
+      [K in keyof U]-?: At<U, K>;
+>>>>>>> b98793f (boiler plate givven by the prisma)
   }>>;
 
   type Key = string | number | symbol;
@@ -471,8 +547,13 @@ export namespace Prisma {
   type AtStrict<O extends object, K extends Key> = O[K & keyof O];
   type AtLoose<O extends object, K extends Key> = O extends unknown ? AtStrict<O, K> : never;
   export type At<O extends object, K extends Key, strict extends Boolean = 1> = {
+<<<<<<< HEAD
     1: AtStrict<O, K>;
     0: AtLoose<O, K>;
+=======
+      1: AtStrict<O, K>;
+      0: AtLoose<O, K>;
+>>>>>>> b98793f (boiler plate givven by the prisma)
   }[strict];
 
   export type ComputeRaw<A extends any> = A extends Function ? A : {
@@ -494,7 +575,11 @@ export namespace Prisma {
   type AtLeast<O extends object, K extends string> = NoExpand<
     O extends unknown
     ? | (K extends keyof O ? { [P in K]: O[P] } & O : O)
+<<<<<<< HEAD
     | { [P in keyof O as P extends K ? P : never]-?: O[P] } & O
+=======
+      | {[P in keyof O as P extends K ? P : never]-?: O[P]} & O
+>>>>>>> b98793f (boiler plate givven by the prisma)
     : never>;
 
   type _Strict<U, _U = U> = U extends unknown ? U & OptionalFlat<_Record<Exclude<Keys<_U>, keyof U>, never>> : never;
@@ -559,8 +644,13 @@ export namespace Prisma {
 
   export type GetScalarType<T, O> = O extends object ? {
     [P in keyof T]: P extends keyof O
+<<<<<<< HEAD
     ? O[P]
     : never
+=======
+      ? O[P]
+      : never
+>>>>>>> b98793f (boiler plate givven by the prisma)
   } : never
 
   type FieldPaths<
@@ -573,6 +663,7 @@ export namespace Prisma {
       Or<Extends<'OR', K>, Extends<'AND', K>>,
       Extends<'NOT', K>
     > extends True
+<<<<<<< HEAD
     ? // infer is only needed to not hit TS limit
     // based on the brilliant idea of Pierre-Antoine Mills
     // https://github.com/microsoft/TypeScript/issues/30188#issuecomment-478938437
@@ -582,6 +673,17 @@ export namespace Prisma {
     : {} extends FieldPaths<T[K]>
     ? never
     : K
+=======
+      ? // infer is only needed to not hit TS limit
+        // based on the brilliant idea of Pierre-Antoine Mills
+        // https://github.com/microsoft/TypeScript/issues/30188#issuecomment-478938437
+        T[K] extends infer TK
+        ? GetHavingFields<UnEnumerate<TK> extends object ? Merge<UnEnumerate<TK>> : never>
+        : never
+      : {} extends FieldPaths<T[K]>
+      ? never
+      : K
+>>>>>>> b98793f (boiler plate givven by the prisma)
   }[keyof T]
 
   /**
@@ -619,7 +721,11 @@ export namespace Prisma {
     db?: Datasource
   }
 
+<<<<<<< HEAD
   interface TypeMapCb<ClientOptions = {}> extends $Utils.Fn<{ extArgs: $Extensions.InternalArgs }, $Utils.Record<string, any>> {
+=======
+  interface TypeMapCb<ClientOptions = {}> extends $Utils.Fn<{extArgs: $Extensions.InternalArgs }, $Utils.Record<string, any>> {
+>>>>>>> b98793f (boiler plate givven by the prisma)
     returns: Prisma.TypeMap<this['params']['extArgs'], ClientOptions extends { omit: infer OmitOptions } ? OmitOptions : {}>
   }
 
@@ -1119,11 +1225,19 @@ export namespace Prisma {
   }
 
   export type GetUserAggregateType<T extends UserAggregateArgs> = {
+<<<<<<< HEAD
     [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
     ? T[P] extends true
     ? number
     : GetScalarType<T[P], AggregateUser[P]>
     : GetScalarType<T[P], AggregateUser[P]>
+=======
+        [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUser[P]>
+      : GetScalarType<T[P], AggregateUser[P]>
+>>>>>>> b98793f (boiler plate givven by the prisma)
   }
 
 
@@ -1157,6 +1271,7 @@ export namespace Prisma {
   type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
     Array<
       PickEnumerable<UserGroupByOutputType, T['by']> &
+<<<<<<< HEAD
       {
         [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
         ? T[P] extends boolean
@@ -1166,6 +1281,17 @@ export namespace Prisma {
       }
     >
   >
+=======
+        {
+          [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UserGroupByOutputType[P]>
+            : GetScalarType<T[P], UserGroupByOutputType[P]>
+        }
+      >
+    >
+>>>>>>> b98793f (boiler plate givven by the prisma)
 
 
   export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1483,10 +1609,17 @@ export namespace Prisma {
       args?: Subset<T, UserCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
+<<<<<<< HEAD
       ? T['select'] extends true
       ? number
       : GetScalarType<T['select'], UserCountAggregateOutputType>
       : number
+=======
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UserCountAggregateOutputType>
+        : number
+>>>>>>> b98793f (boiler plate givven by the prisma)
     >
 
     /**
@@ -1540,8 +1673,13 @@ export namespace Prisma {
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
+<<<<<<< HEAD
       ? { orderBy: UserGroupByArgs['orderBy'] }
       : { orderBy?: UserGroupByArgs['orderBy'] },
+=======
+        ? { orderBy: UserGroupByArgs['orderBy'] }
+        : { orderBy?: UserGroupByArgs['orderBy'] },
+>>>>>>> b98793f (boiler plate givven by the prisma)
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1552,6 +1690,7 @@ export namespace Prisma {
       ? `Error: "by" must not be empty.`
       : HavingValid extends False
       ? {
+<<<<<<< HEAD
         [P in HavingFields]: P extends ByFields
         ? never
         : P extends string
@@ -1595,6 +1734,51 @@ export namespace Prisma {
      * Fields of the User model
      */
     readonly fields: UserFieldRefs;
+=======
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the User model
+   */
+  readonly fields: UserFieldRefs;
+>>>>>>> b98793f (boiler plate givven by the prisma)
   }
 
   /**
@@ -1639,7 +1823,11 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
   }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> b98793f (boiler plate givven by the prisma)
 
   // Custom InputTypes
   /**
@@ -2213,11 +2401,19 @@ export namespace Prisma {
   }
 
   export type GetPostAggregateType<T extends PostAggregateArgs> = {
+<<<<<<< HEAD
     [P in keyof T & keyof AggregatePost]: P extends '_count' | 'count'
     ? T[P] extends true
     ? number
     : GetScalarType<T[P], AggregatePost[P]>
     : GetScalarType<T[P], AggregatePost[P]>
+=======
+        [P in keyof T & keyof AggregatePost]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePost[P]>
+      : GetScalarType<T[P], AggregatePost[P]>
+>>>>>>> b98793f (boiler plate givven by the prisma)
   }
 
 
@@ -2253,6 +2449,7 @@ export namespace Prisma {
   type GetPostGroupByPayload<T extends PostGroupByArgs> = Prisma.PrismaPromise<
     Array<
       PickEnumerable<PostGroupByOutputType, T['by']> &
+<<<<<<< HEAD
       {
         [P in ((keyof T) & (keyof PostGroupByOutputType))]: P extends '_count'
         ? T[P] extends boolean
@@ -2262,6 +2459,17 @@ export namespace Prisma {
       }
     >
   >
+=======
+        {
+          [P in ((keyof T) & (keyof PostGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PostGroupByOutputType[P]>
+            : GetScalarType<T[P], PostGroupByOutputType[P]>
+        }
+      >
+    >
+>>>>>>> b98793f (boiler plate givven by the prisma)
 
 
   export type PostSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2593,10 +2801,17 @@ export namespace Prisma {
       args?: Subset<T, PostCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
+<<<<<<< HEAD
       ? T['select'] extends true
       ? number
       : GetScalarType<T['select'], PostCountAggregateOutputType>
       : number
+=======
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PostCountAggregateOutputType>
+        : number
+>>>>>>> b98793f (boiler plate givven by the prisma)
     >
 
     /**
@@ -2650,8 +2865,13 @@ export namespace Prisma {
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
+<<<<<<< HEAD
       ? { orderBy: PostGroupByArgs['orderBy'] }
       : { orderBy?: PostGroupByArgs['orderBy'] },
+=======
+        ? { orderBy: PostGroupByArgs['orderBy'] }
+        : { orderBy?: PostGroupByArgs['orderBy'] },
+>>>>>>> b98793f (boiler plate givven by the prisma)
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2662,6 +2882,7 @@ export namespace Prisma {
       ? `Error: "by" must not be empty.`
       : HavingValid extends False
       ? {
+<<<<<<< HEAD
         [P in HavingFields]: P extends ByFields
         ? never
         : P extends string
@@ -2705,6 +2926,51 @@ export namespace Prisma {
      * Fields of the Post model
      */
     readonly fields: PostFieldRefs;
+=======
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PostGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPostGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Post model
+   */
+  readonly fields: PostFieldRefs;
+>>>>>>> b98793f (boiler plate givven by the prisma)
   }
 
   /**
@@ -2751,7 +3017,11 @@ export namespace Prisma {
     readonly published: FieldRef<"Post", 'Boolean'>
     readonly authorId: FieldRef<"Post", 'Int'>
   }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> b98793f (boiler plate givven by the prisma)
 
   // Custom InputTypes
   /**
@@ -3231,49 +3501,77 @@ export namespace Prisma {
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> b98793f (boiler plate givven by the prisma)
 
 
   /**
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> b98793f (boiler plate givven by the prisma)
 
 
   /**
    * Reference to a field of type 'String'
    */
   export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> b98793f (boiler plate givven by the prisma)
 
 
   /**
    * Reference to a field of type 'String[]'
    */
   export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> b98793f (boiler plate givven by the prisma)
 
 
   /**
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> b98793f (boiler plate givven by the prisma)
 
 
   /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> b98793f (boiler plate givven by the prisma)
 
 
   /**
    * Reference to a field of type 'Float[]'
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> b98793f (boiler plate givven by the prisma)
   /**
    * Deep Input Types
    */
